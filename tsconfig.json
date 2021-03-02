@@ -1,0 +1,16 @@
+// tsconfig.json
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "pretty": true,
+      "sourceMap": true,
+      "target": "es6",
+      "outDir": "./dist",
+      "esModuleInterop": true,
+      "baseUrl": "./api"
+    },
+    "include": ["api/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
