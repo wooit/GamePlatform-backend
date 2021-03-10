@@ -10,14 +10,14 @@ const DB = mysql.createPool({
     //charset : 'utf8mb4'
 });
 
-DB.query = (sql: string): Promise<any> => {
+DB.query = (sql: string): Promise<any> => {                 // function DB Q (une string sql) : return une promess <any>
     return new Promise<any>(resolve => {
         DB.getConnection((err, con) => {
             if (err) throw err;
             con.query(sql, (err, res) => {
                 con.release();
                 if (err) throw err;
-                resolve(res);
+                resolve(res);                               // resolve (res) => res est (c'est le qres de Register)
             });
         })
     })

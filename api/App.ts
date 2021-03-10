@@ -9,9 +9,7 @@ class App {
 
     constructor() {
         this.app = express();
-        // parse application/x-www-form-urlencoded
         this.app.use(bodyParser.urlencoded({ extended: false })) 
-        // parse application/json
         this.app.use(bodyParser.json()) 
         this.app.use(express.json()); // recognize the incoming Request Object as a JSON Object
         this.app.use(cors());
