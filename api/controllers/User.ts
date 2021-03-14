@@ -40,7 +40,7 @@ export default class User {
         const sql = `SELECT id, username, password FROM user WHERE username = '${username}'`;
         DB.query(sql).then(async qres => {
             if (!qres.length) {
-                res.status(403).send({err: `Cet utilisateur n'existe pas`});
+                res.status(403).send({err: `user doesnt exist`});
                 return;
             }
             let validation = await bcrypt.compare(password, qres[0].password);
@@ -55,7 +55,7 @@ export default class User {
                 })
             }
             else
-                res.status(403).send({err: `Mot de passe incorrect`});
+                res.status(403).send({err: `incorrect password`});
         }).catch(err => {
             console.error(`Error while searching for user '${username}' in DB : ${err}`);
         })
