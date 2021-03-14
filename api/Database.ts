@@ -10,7 +10,7 @@ const DB = mysql.createPool({
     //charset : 'utf8mb4'
 });
 
-DB.query = (sql: string): Promise<any> => {                 // function DB Q (une string sql) : return une promess <any>
+DB.query = (sql: string): Promise<any> => {                 // function DB Q (une string sql) : return une promess <any> // créer une méthode à la classe DB sans etre à l'intérieur de la classe
     return new Promise<any>(resolve => {
         DB.getConnection((err, con) => {
             if (err) throw err;

@@ -10,6 +10,7 @@ export default class RequestHandler {
         const sql = `SELECT username, token FROM user WHERE username='${credentials.username}' AND token='${credentials.token}'`;
         DB.query(sql).then(sqlRes => {
             if (sqlRes.length) 
+                
                 callback();
             else
                 console.error(`Unable to handle authenticated request for user ${credentials.username} : wrong token`);

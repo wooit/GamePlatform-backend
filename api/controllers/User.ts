@@ -5,7 +5,7 @@ import RequestHandler from "./RequestHandler";
 
 export default class User {
 
-    async isLogged(req: express.Request, res: express.Response): Promise<any> {
+    async isLogged(req: express.Request, res: express.Response): Promise<any> {     // <>  type de données retournée par la promise
         const { username, token } = req.body.credentials;
         RequestHandler.handleAuthenticatedRequest({ username, token }, () => {
             res.send(username);
@@ -35,12 +35,6 @@ export default class User {
         })
     };
 
-    /** Login
-     * return a logged user or null
-     * 
-     * @param req 
-     * @param res 
-     */
     async login(req: express.Request, res: express.Response): Promise<void> {
         const { username, password } = req.body.user;
         const sql = `SELECT id, username, password FROM user WHERE username = '${username}'`;
